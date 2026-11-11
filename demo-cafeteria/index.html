@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Café Molienda · Brunch y café de especialidad · Monterrey</title>
+<meta name="description" content="Cafetería de especialidad y brunch en Vista Hermosa, Monterrey. Menú, horarios, ubicación y pedidos por WhatsApp.">
+<style>
+  :root { --cafe:#2b1d16; --cafe2:#3b2a20; --caramelo:#d39b5a; --crema:#f6efe6; --texto:#2b1d16; --gris:#7a6a5e; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:"Segoe UI", system-ui, Arial, sans-serif; color:var(--texto); background:var(--crema); line-height:1.6; }
+  a { color:inherit; }
+  .wrap { max-width:1060px; margin:0 auto; padding:0 22px; }
+  h1,h2,h3 { font-family: Georgia, serif; }
+
+  header { position:absolute; top:0; left:0; right:0; z-index:10; }
+  .nav { display:flex; justify-content:space-between; align-items:center; height:76px; color:#fff; }
+  .logo { font-family:Georgia,serif; font-size:1.5rem; text-decoration:none; font-style:italic; }
+  .nav ul { display:flex; gap:26px; list-style:none; margin:0; padding:0; }
+  .nav ul a { text-decoration:none; opacity:.85; }
+  @media (max-width:760px){ .nav ul{display:none;} }
+
+  .btn { display:inline-flex; align-items:center; gap:8px; padding:13px 26px; border-radius:6px; text-decoration:none; font-weight:700; }
+  .btn-car { background:var(--caramelo); color:var(--cafe); }
+  .btn-car:hover { background:#e2ad6d; }
+  .btn-line { border:2px solid rgba(255,255,255,.7); color:#fff; }
+  .btn svg { width:20px; height:20px; fill:currentColor; }
+
+  .hero { min-height:88vh; background: radial-gradient(ellipse at 75% 40%, rgba(211,155,90,.35), transparent 55%), linear-gradient(160deg, #3b2a20, #1d130e); color:#fff; display:flex; align-items:center; position:relative; overflow:hidden; }
+  .hero::after { content:""; position:absolute; right:-80px; bottom:-80px; width:420px; aspect-ratio:1; border-radius:50%; border:40px solid rgba(211,155,90,.12); }
+  .hero .eyebrow { color:var(--caramelo); letter-spacing:4px; text-transform:uppercase; font-size:.8rem; }
+  .hero h1 { font-size:clamp(2.5rem,6vw,4.4rem); line-height:1.05; margin:14px 0 20px; max-width:640px; }
+  .hero p { font-size:1.12rem; color:#e3d3c1; max-width:480px; margin:0 0 30px; }
+  .hero .ctas { display:flex; gap:14px; flex-wrap:wrap; }
+  .hero .horas { margin-top:36px; display:flex; gap:30px; flex-wrap:wrap; color:#e3d3c1; font-size:.95rem; }
+  .hero .horas b { display:block; color:#fff; }
+
+  section { padding:80px 0; }
+  .titulo { text-align:center; margin-bottom:34px; }
+  .titulo .eyebrow { color:var(--caramelo); letter-spacing:4px; text-transform:uppercase; font-size:.78rem; font-weight:700; }
+  .titulo h2 { font-size:clamp(1.9rem,3.5vw,2.6rem); margin:6px 0 0; }
+
+  .tabs { display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-bottom:34px; }
+  .tabs button { border:2px solid var(--cafe); background:transparent; color:var(--cafe); padding:9px 20px; border-radius:999px; font:inherit; font-weight:700; cursor:pointer; }
+  .tabs button.on { background:var(--cafe); color:var(--crema); }
+  .menu { display:none; grid-template-columns:1fr 1fr; gap:6px 50px; max-width:860px; margin:0 auto; }
+  .menu.on { display:grid; }
+  .plato { display:flex; align-items:baseline; gap:10px; padding:14px 0; border-bottom:1px dashed #d8c8b5; }
+  .plato .n { font-weight:700; }
+  .plato .d { display:block; color:var(--gris); font-size:.9rem; font-weight:400; }
+  .plato .l { flex:1; }
+  .plato .p { font-family:Georgia,serif; font-weight:700; color:var(--cafe2); white-space:nowrap; }
+  @media (max-width:760px){ .menu{grid-template-columns:1fr;} }
+
+  .historia { background:var(--cafe); color:#e3d3c1; }
+  .historia .wrap { display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; }
+  .historia h2 { color:#fff; font-size:2.3rem; margin:0 0 14px; }
+  .historia .stats { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .historia .stats div { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:22px; }
+  .historia .stats b { font-family:Georgia,serif; font-size:2rem; color:var(--caramelo); display:block; }
+  @media (max-width:760px){ .historia .wrap{grid-template-columns:1fr;} }
+
+  .visita { display:grid; grid-template-columns:1fr 1.2fr; gap:30px; }
+  .visita .info { background:#fff; border-radius:12px; padding:30px; }
+  .visita table { width:100%; border-collapse:collapse; }
+  .visita td { padding:8px 0; border-bottom:1px solid #eee3d6; }
+  .visita td:last-child { text-align:right; color:var(--gris); }
+  .mapa { border-radius:12px; overflow:hidden; min-height:330px; }
+  .mapa iframe { width:100%; height:100%; min-height:330px; border:0; }
+  @media (max-width:760px){ .visita{grid-template-columns:1fr;} }
+
+  footer { background:#1d130e; color:#9c8a7b; font-size:.85rem; padding:22px 0; }
+  footer .wrap { display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; }
+  .demo-tag { color:var(--caramelo); }
+  .wa-float { position:fixed; right:18px; bottom:18px; width:58px; height:58px; border-radius:50%; background:#25d366; display:grid; place-items:center; box-shadow:0 8px 22px rgba(0,0,0,.25); z-index:20; }
+  .wa-float svg { width:30px; height:30px; fill:#fff; }
+</style>
+</head>
+<body>
+<svg style="display:none"><symbol id="wa" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.24.68-1.42 1.3-1.95 1.35-.5.05-1.13.07-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.8-4.18-4.94-4.37-.14-.19-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.26-.29.58-.36.77-.36h.55c.18 0 .42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48l-.43.5c-.14.14-.29.3-.12.59.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.92-1.13.19-.29.38-.24.65-.14.26.1 1.68.79 1.97.94.29.14.48.21.55.33.07.12.07.7-.17 1.38z"/></symbol></svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#">Café Molienda</a>
+    <ul><li><a href="#menu">Menú</a></li><li><a href="#nosotros">Nosotros</a></li><li><a href="#visita">Visítanos</a></li></ul>
+    <a class="btn btn-car" href="#menu">Ver menú</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Café de especialidad · Brunch</div>
+    <h1>El mejor brunch de Vista Hermosa</h1>
+    <p>Café tostado en Monterrey, chilaquiles que te hacen volver y pan horneado cada mañana. Ven a desayunar o pide para llevar.</p>
+    <div class="ctas">
+      <a class="btn btn-car" href="https://wa.me/528711310228?text=Hola%20Carlos%2C%20vi%20tu%20p%C3%A1gina%20demo%20y%20me%20interesa%20una%20para%20mi%20negocio" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Pedir por WhatsApp</a>
+      <a class="btn btn-line" href="#menu">Ver menú</a>
+    </div>
+    <div class="horas">
+      <div><b>Martes a sábado</b>8:00 – 20:00</div>
+      <div><b>Domingo</b>8:00 – 15:00</div>
+      <div><b>Lunes</b>Cerrado</div>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="titulo"><div class="eyebrow">Nuestro menú</div><h2>Para cada antojo</h2></div>
+    <div class="tabs">
+      <button class="on" onclick="tab(this,'m1')">Café</button>
+      <button onclick="tab(this,'m2')">Desayunos</button>
+      <button onclick="tab(this,'m3')">Panadería</button>
+    </div>
+    <div class="menu on" id="m1">
+      <div class="plato"><span class="l"><span class="n">Espresso</span><span class="d">Origen Chiapas, notas a chocolate</span></span><span class="p">$45</span></div>
+      <div class="plato"><span class="l"><span class="n">Latte</span><span class="d">Leche entera, deslactosada o de avena</span></span><span class="p">$65</span></div>
+      <div class="plato"><span class="l"><span class="n">Cold brew</span><span class="d">Infusión en frío por 18 horas</span></span><span class="p">$70</span></div>
+      <div class="plato"><span class="l"><span class="n">Capuchino</span><span class="d">Espuma sedosa, canela opcional</span></span><span class="p">$60</span></div>
+      <div class="plato"><span class="l"><span class="n">Chai latte</span><span class="d">Especias de la casa</span></span><span class="p">$70</span></div>
+      <div class="plato"><span class="l"><span class="n">Método V60</span><span class="d">Grano del mes, preparado en barra</span></span><span class="p">$80</span></div>
+    </div>
+    <div class="menu" id="m2">
+      <div class="plato"><span class="l"><span class="n">Chilaquiles rojos</span><span class="d">Con huevo o pollo, crema y queso fresco</span></span><span class="p">$145</span></div>
+      <div class="plato"><span class="l"><span class="n">Avocado toast</span><span class="d">Pan de masa madre, huevo pochado</span></span><span class="p">$135</span></div>
+      <div class="plato"><span class="l"><span class="n">Molletes</span><span class="d">Frijol, queso gratinado y pico de gallo</span></span><span class="p">$110</span></div>
+      <div class="plato"><span class="l"><span class="n">Hot cakes</span><span class="d">Con frutos rojos y miel de maple</span></span><span class="p">$125</span></div>
+      <div class="plato"><span class="l"><span class="n">Omelette</span><span class="d">Espinaca, champiñón y queso de cabra</span></span><span class="p">$140</span></div>
+      <div class="plato"><span class="l"><span class="n">Bowl de yogurt</span><span class="d">Granola casera y fruta de temporada</span></span><span class="p">$105</span></div>
+    </div>
+    <div class="menu" id="m3">
+      <div class="plato"><span class="l"><span class="n">Croissant</span><span class="d">Mantequilla, horneado cada mañana</span></span><span class="p">$45</span></div>
+      <div class="plato"><span class="l"><span class="n">Rol de canela</span><span class="d">Con glaseado de queso crema</span></span><span class="p">$55</span></div>
+      <div class="plato"><span class="l"><span class="n">Concha de nata</span><span class="d">Receta de la casa</span></span><span class="p">$35</span></div>
+      <div class="plato"><span class="l"><span class="n">Galleta de chocochip</span><span class="d">Grande, centro suave</span></span><span class="p">$40</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="historia" id="nosotros">
+  <div class="wrap">
+    <div>
+      <h2>Hecho con calma</h2>
+      <p>Abrimos para tener un lugar donde el café se toma en serio y el desayuno sabe a casa. Libros, plantas y una mesa para quedarte el tiempo que quieras.</p>
+      <p>Pet friendly, con wifi y terraza.</p>
+    </div>
+    <div class="stats">
+      <div><b>4.8 ★</b>en Google</div>
+      <div><b>18 h</b>de cold brew</div>
+      <div><b>100%</b>pan hecho aquí</div>
+      <div><b>Wifi</b>y terraza</div>
+    </div>
+  </div>
+</section>
+
+<section id="visita">
+  <div class="wrap">
+    <div class="titulo"><div class="eyebrow">Visítanos</div><h2>Te esperamos</h2></div>
+    <div class="visita">
+      <div class="info">
+        <table>
+          <tr><td>Dirección</td><td>Col. Vista Hermosa, Monterrey</td></tr>
+          <tr><td>Martes a sábado</td><td>8:00 – 20:00</td></tr>
+          <tr><td>Domingo</td><td>8:00 – 15:00</td></tr>
+          <tr><td>Estacionamiento</td><td>En la calle</td></tr>
+          <tr><td>Pagos</td><td>Efectivo y tarjeta</td></tr>
+        </table>
+        <p style="margin-top:22px"><a class="btn btn-car" href="https://wa.me/528711310228?text=Hola%20Carlos%2C%20vi%20tu%20p%C3%A1gina%20demo%20y%20me%20interesa%20una%20para%20mi%20negocio" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Pedir para llevar</a></p>
+      </div>
+      <div class="mapa"><iframe title="Mapa" loading="lazy" src="https://www.google.com/maps?q=Vista+Hermosa,+Monterrey,+N.L.&output=embed"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>© 2026 Café Molienda</span><span class="demo-tag">Sitio de demostración · Diseño web: Carlos Fernández · WhatsApp 871-131-0228</span></div></footer>
+<a class="wa-float" href="https://wa.me/528711310228?text=Hola%20Carlos%2C%20vi%20tu%20p%C3%A1gina%20demo%20y%20me%20interesa%20una%20para%20mi%20negocio" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#wa"/></svg></a>
+<script>
+function tab(b, id){
+  document.querySelectorAll('.tabs button').forEach(function(x){x.classList.remove('on');});
+  document.querySelectorAll('.menu').forEach(function(x){x.classList.remove('on');});
+  b.classList.add('on'); document.getElementById(id).classList.add('on');
+}
+</script>
+</body>
+</html>

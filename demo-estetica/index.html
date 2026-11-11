@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Velare Clínica Estética · Monterrey</title>
+<meta name="description" content="Medicina estética en Vista Hermosa, Monterrey. Rellenos, bótox, láser y faciales con médicos certificados.">
+<style>
+  :root { --crema:#faf6f1; --arena:#efe5d8; --oro:#b08d57; --oro-osc:#8a6c3e; --tinta:#2a2420; --gris:#6f645b; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:"Segoe UI", system-ui, Arial, sans-serif; color:var(--tinta); background:var(--crema); line-height:1.6; }
+  h1,h2,h3 { font-family: Georgia, "Times New Roman", serif; font-weight:400; letter-spacing:.3px; }
+  a { color:inherit; }
+  .wrap { max-width:1100px; margin:0 auto; padding:0 22px; }
+
+  header { position:sticky; top:0; z-index:10; background:rgba(250,246,241,.95); backdrop-filter:blur(6px); border-bottom:1px solid var(--arena); }
+  .nav { display:flex; justify-content:space-between; align-items:center; height:70px; }
+  .logo { font-family:Georgia, serif; font-size:1.6rem; letter-spacing:6px; text-decoration:none; }
+  .logo small { display:block; font-family:"Segoe UI",sans-serif; font-size:.62rem; letter-spacing:3px; color:var(--oro-osc); margin-top:-4px; }
+  .nav ul { display:flex; gap:28px; list-style:none; margin:0; padding:0; }
+  .nav ul a { text-decoration:none; font-size:.92rem; color:var(--gris); text-transform:uppercase; letter-spacing:1.5px; }
+  @media (max-width:800px){ .nav ul{display:none;} }
+
+  .btn { display:inline-block; padding:13px 28px; text-decoration:none; font-size:.9rem; letter-spacing:1.5px; text-transform:uppercase; border:1px solid var(--tinta); transition:.2s; }
+  .btn-dark { background:var(--tinta); color:#fff; }
+  .btn-dark:hover { background:var(--oro-osc); border-color:var(--oro-osc); }
+  .btn-line:hover { background:var(--tinta); color:#fff; }
+
+  .hero { display:grid; grid-template-columns:1fr 1fr; min-height:78vh; }
+  .hero .txt { display:flex; flex-direction:column; justify-content:center; padding:60px 8%; }
+  .hero .eyebrow { color:var(--oro-osc); letter-spacing:4px; text-transform:uppercase; font-size:.8rem; margin-bottom:14px; }
+  .hero h1 { font-size:clamp(2.3rem,5vw,3.8rem); line-height:1.1; margin:0 0 20px; }
+  .hero h1 em { color:var(--oro-osc); }
+  .hero p { color:var(--gris); font-size:1.08rem; max-width:440px; margin:0 0 30px; }
+  .hero .ctas { display:flex; gap:14px; flex-wrap:wrap; }
+  .hero .img { background: radial-gradient(circle at 30% 30%, #f3e3cf 0, #d9bf9c 45%, #b08d57 100%); position:relative; overflow:hidden; }
+  .hero .img::before { content:""; position:absolute; width:70%; aspect-ratio:1; border-radius:50%; border:1px solid rgba(255,255,255,.5); top:15%; left:15%; }
+  .hero .img::after { content:""; position:absolute; width:46%; aspect-ratio:1; border-radius:50%; background:rgba(255,255,255,.18); top:27%; left:27%; }
+  @media (max-width:800px){ .hero{grid-template-columns:1fr;} .hero .img{min-height:220px;} }
+
+  .franja { background:var(--tinta); color:#e9dcc8; }
+  .franja .wrap { display:flex; flex-wrap:wrap; justify-content:space-around; gap:16px; padding:22px; font-size:.9rem; letter-spacing:1.5px; text-transform:uppercase; }
+
+  section { padding:84px 0; }
+  .titulo { text-align:center; margin-bottom:50px; }
+  .titulo .eyebrow { color:var(--oro-osc); letter-spacing:4px; text-transform:uppercase; font-size:.78rem; }
+  .titulo h2 { font-size:clamp(1.9rem,3.5vw,2.6rem); margin:8px 0 0; }
+
+  .trat { display:grid; grid-template-columns:repeat(2,1fr); gap:0 60px; max-width:900px; margin:0 auto; }
+  .trat .item { display:flex; justify-content:space-between; gap:20px; padding:20px 0; border-bottom:1px solid #e2d6c6; }
+  .trat h3 { margin:0 0 4px; font-size:1.2rem; }
+  .trat p { margin:0; color:var(--gris); font-size:.93rem; }
+  .trat .precio { color:var(--oro-osc); white-space:nowrap; font-family:Georgia,serif; font-size:1.1rem; }
+  @media (max-width:800px){ .trat{grid-template-columns:1fr;} }
+
+  .proceso { background:var(--arena); }
+  .pasos { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; text-align:center; }
+  .pasos .n { font-family:Georgia,serif; font-size:3rem; color:var(--oro); line-height:1; }
+  .pasos h3 { margin:10px 0 6px; font-size:1.25rem; }
+  .pasos p { color:var(--gris); margin:0; }
+  @media (max-width:800px){ .pasos{grid-template-columns:1fr;} }
+
+  .equipo { display:grid; grid-template-columns:1fr 1.3fr; gap:60px; align-items:center; }
+  .equipo .foto { aspect-ratio:4/5; background:linear-gradient(160deg,#e9dcc8,#c9ad86); }
+  .equipo h2 { font-size:2.2rem; margin:0 0 6px; }
+  .equipo .cred { color:var(--oro-osc); letter-spacing:2px; text-transform:uppercase; font-size:.8rem; margin-bottom:18px; }
+  .equipo ul { padding-left:18px; color:var(--gris); }
+  @media (max-width:800px){ .equipo{grid-template-columns:1fr;} .equipo .foto{max-width:300px;} }
+
+  .opis { display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  .opi { background:#fff; padding:30px; border:1px solid #ece2d5; }
+  .opi p { font-family:Georgia,serif; font-style:italic; font-size:1.05rem; margin:0 0 16px; }
+  .opi b { font-size:.85rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--oro-osc); }
+  @media (max-width:800px){ .opis{grid-template-columns:1fr;} }
+
+  .cita { background:var(--tinta); color:#f1e8db; text-align:center; }
+  .cita h2 { font-size:clamp(1.9rem,3.5vw,2.7rem); margin:0 0 12px; }
+  .cita p { color:#c9b9a3; margin:0 0 28px; }
+  .cita .btn { border-color:#f1e8db; color:#f1e8db; }
+  .cita .btn:hover { background:#f1e8db; color:var(--tinta); }
+  .datos { display:flex; justify-content:center; flex-wrap:wrap; gap:40px; margin-top:40px; font-size:.95rem; color:#c9b9a3; }
+  .datos b { display:block; color:#f1e8db; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; font-size:.8rem; margin-bottom:4px; }
+
+  footer { background:#1c1815; color:#8f8273; font-size:.85rem; padding:22px 0; }
+  footer .wrap { display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; }
+  .demo-tag { color:#d6b47e; }
+  .wa-float { position:fixed; right:18px; bottom:18px; width:58px; height:58px; border-radius:50%; background:#25d366; display:grid; place-items:center; box-shadow:0 8px 22px rgba(0,0,0,.25); z-index:20; }
+  .wa-float svg { width:30px; height:30px; fill:#fff; }
+</style>
+</head>
+<body>
+<svg style="display:none"><symbol id="wa" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.24.68-1.42 1.3-1.95 1.35-.5.05-1.13.07-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.8-4.18-4.94-4.37-.14-.19-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.26-.29.58-.36.77-.36h.55c.18 0 .42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48l-.43.5c-.14.14-.29.3-.12.59.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.92-1.13.19-.29.38-.24.65-.14.26.1 1.68.79 1.97.94.29.14.48.21.55.33.07.12.07.7-.17 1.38z"/></symbol></svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#">VELARE<small>Clínica estética</small></a>
+    <ul>
+      <li><a href="#tratamientos">Tratamientos</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#equipo">Equipo</a></li>
+      <li><a href="#cita">Contacto</a></li>
+    </ul>
+    <a class="btn btn-dark" href="https://wa.me/528711310228?text=Hola%20Carlos%2C%20vi%20tu%20p%C3%A1gina%20demo%20y%20me%20interesa%20una%20para%20mi%20negocio" target="_blank" rel="noopener">Agendar</a>
+  </div>
+</header>
+
+<section class="hero" style="padding:0">
+  <div class="txt">
+    <div class="eyebrow">Medicina estética · Vista Hermosa</div>
+    <h1>Resultados <em>naturales</em>, en manos médicas</h1>
+    <p>Rellenos, toxina botulínica, láser y faciales médicos. Cada tratamiento empieza con una valoración personalizada para que te veas como tú, en tu mejor versión.</p>
+    <div class="ctas">
+      <a class="btn btn-dark" href="#cita">Agenda tu valoración</a>
+      <a class="btn btn-line" href="#tratamientos">Ver tratamientos</a>
+    </div>
+  </div>
+  <div class="img" role="img" aria-label="Imagen decorativa"></div>
+</section>
+
+<div class="franja"><div class="wrap"><span>Médicos certificados</span><span>Productos con registro COFEPRIS</span><span>Valoración sin costo</span><span>Meses sin intereses</span></div></div>
+
+<section id="tratamientos">
+  <div class="wrap">
+    <div class="titulo"><div class="eyebrow">Carta de tratamientos</div><h2>Lo que hacemos</h2></div>
+    <div class="trat">
+      <div class="item"><div><h3>Toxina botulínica</h3><p>Suaviza líneas de expresión en frente y entrecejo.</p></div><div class="precio">$4,500</div></div>
+      <div class="item"><div><h3>Relleno de labios</h3><p>Ácido hialurónico, volumen y definición sutil.</p></div><div class="precio">$5,800</div></div>
+      <div class="item"><div><h3>Rejuvenecimiento IPL</h3><p>Manchas, rojeces y textura en una sesión.</p></div><div class="precio">$2,200</div></div>
+      <div class="item"><div><h3>Láser fraccionado</h3><p>Cicatrices de acné y poros dilatados.</p></div><div class="precio">$3,900</div></div>
+      <div class="item"><div><h3>Facial médico profundo</h3><p>Limpieza, exfoliación y mascarilla según tu piel.</p></div><div class="precio">$1,400</div></div>
+      <div class="item"><div><h3>Perfilado de mandíbula</h3><p>Contorno definido con relleno estructural.</p></div><div class="precio">$7,500</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="proceso" id="proceso">
+  <div class="wrap">
+    <div class="titulo"><div class="eyebrow">Cómo trabajamos</div><h2>Tres pasos, sin sorpresas</h2></div>
+    <div class="pasos">
+      <div><div class="n">01</div><h3>Valoración</h3><p>Analizamos tu piel y escuchamos qué quieres lograr. Sin costo.</p></div>
+      <div><div class="n">02</div><h3>Plan a tu medida</h3><p>Te explicamos opciones, tiempos y precio total antes de empezar.</p></div>
+      <div><div class="n">03</div><h3>Seguimiento</h3><p>Revisión a los 15 días incluida en cada tratamiento.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="equipo">
+  <div class="wrap equipo">
+    <div class="foto" role="img" aria-label="Foto del médico"></div>
+    <div>
+      <div class="cred">Directora médica</div>
+      <h2>Dra. Ejemplo Demo</h2>
+      <p>Médica cirujana con especialidad en medicina estética. Mi enfoque es el resultado natural: que la gente note que te ves descansada, no que te hiciste algo.</p>
+      <ul>
+        <li>Más de 3,000 procedimientos realizados</li>
+        <li>Certificación en inyectables y láser</li>
+        <li>Actualización constante en congresos internacionales</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="proceso">
+  <div class="wrap">
+    <div class="titulo"><div class="eyebrow">Opiniones</div><h2>Lo que dicen nuestras pacientes</h2></div>
+    <div class="opis">
+      <div class="opi"><p>"Por fin un lugar donde no me vendieron de más. Resultado súper natural."</p><b>Paciente A.</b></div>
+      <div class="opi"><p>"El IPL me quitó las manchas que tenía hace años. Atención impecable."</p><b>Paciente B.</b></div>
+      <div class="opi"><p>"Me explicaron todo con calma y el precio fue el que me dijeron desde el inicio."</p><b>Paciente C.</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="cita" id="cita">
+  <div class="wrap">
+    <h2>Tu valoración es sin costo</h2>
+    <p>Escríbenos por WhatsApp y te damos cita esta semana.</p>
+    <a class="btn" href="https://wa.me/528711310228?text=Hola%20Carlos%2C%20vi%20tu%20p%C3%A1gina%20demo%20y%20me%20interesa%20una%20para%20mi%20negocio" target="_blank" rel="noopener">Agendar por WhatsApp</a>
+    <div class="datos">
+      <div><b>Ubicación</b>Col. Vista Hermosa, Monterrey</div>
+      <div><b>Horario</b>Lun a vie 10–19 · Sáb 10–15</div>
+      <div><b>Pagos</b>Tarjeta, transferencia, MSI</div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>© 2026 Velare Clínica Estética</span><span class="demo-tag">Sitio de demostración · Diseño web: Carlos Fernández · WhatsApp 871-131-0228</span></div></footer>
+<a class="wa-float" href="https://wa.me/528711310228?text=Hola%20Carlos%2C%20vi%20tu%20p%C3%A1gina%20demo%20y%20me%20interesa%20una%20para%20mi%20negocio" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#wa"/></svg></a>
+</body>
+</html>

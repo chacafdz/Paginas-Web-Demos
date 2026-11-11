@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clínica Dental Sonrisa Norte · Vista Hermosa, Monterrey</title>
+<meta name="description" content="Dentista en Col. Vista Hermosa, Monterrey. Limpieza, ortodoncia, blanqueamiento y urgencias. Agenda tu cita por WhatsApp.">
+<style>
+  :root {
+    --azul: #0f5e8c;
+    --azul-osc: #0a3f5e;
+    --menta: #2ec4b6;
+    --claro: #f2f8fb;
+    --texto: #1d2b36;
+    --gris: #5d6d79;
+    --radio: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif; color: var(--texto); line-height: 1.55; }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  /* Barra superior */
+  header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.96); backdrop-filter: blur(6px); border-bottom: 1px solid #e3edf3; }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--azul-osc); text-decoration: none; font-size: 1.05rem; }
+  .logo svg { width: 32px; height: 32px; }
+  .nav ul { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; }
+  .nav ul a { text-decoration: none; color: var(--gris); font-weight: 500; }
+  .nav ul a:hover { color: var(--azul); }
+  @media (max-width: 760px) { .nav ul { display: none; } }
+
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 999px; font-weight: 600; text-decoration: none; border: 0; cursor: pointer; font-size: 1rem; }
+  .btn-wa { background: #25d366; color: #fff; }
+  .btn-wa:hover { background: #1eb558; }
+  .btn-sec { background: #fff; color: var(--azul); border: 2px solid var(--azul); }
+  .btn svg { width: 20px; height: 20px; fill: currentColor; }
+
+  /* Portada */
+  .hero { background: linear-gradient(135deg, var(--azul-osc), var(--azul) 55%, var(--menta)); color: #fff; padding: 72px 0 84px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; }
+  .hero h1 { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.12; margin: 0 0 16px; }
+  .hero p { font-size: 1.12rem; opacity: .92; margin: 0 0 28px; max-width: 520px; }
+  .hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+  .hero .btn-sec { background: transparent; color: #fff; border-color: rgba(255,255,255,.7); }
+  .badges { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 30px; font-size: .95rem; opacity: .95; }
+  .badges span::before { content: "✓ "; color: #b9fff6; font-weight: 700; }
+  .hero-card { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25); border-radius: 22px; padding: 28px; }
+  .hero-card h3 { margin: 0 0 14px; font-size: 1.1rem; }
+  .hero-card .row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.18); font-size: .98rem; }
+  .hero-card .row:last-child { border-bottom: 0; }
+  @media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; } .hero { padding: 48px 0 56px; } }
+
+  /* Secciones */
+  section { padding: 72px 0; }
+  .titulo { text-align: center; max-width: 640px; margin: 0 auto 44px; }
+  .titulo h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); margin: 0 0 10px; color: var(--azul-osc); }
+  .titulo p { color: var(--gris); margin: 0; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  @media (max-width: 860px) { .grid3 { grid-template-columns: 1fr; } }
+
+  .serv { background: #fff; border: 1px solid #e3edf3; border-radius: var(--radio); padding: 26px; transition: transform .2s, box-shadow .2s; }
+  .serv:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(15,94,140,.12); }
+  .serv .ico { width: 48px; height: 48px; border-radius: 12px; background: var(--claro); display: grid; place-items: center; margin-bottom: 14px; }
+  .serv .ico svg { width: 26px; height: 26px; stroke: var(--azul); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .serv h3 { margin: 0 0 6px; font-size: 1.12rem; }
+  .serv p { margin: 0 0 10px; color: var(--gris); font-size: .97rem; }
+  .serv .precio { font-weight: 700; color: var(--azul); }
+
+  .alt { background: var(--claro); }
+  .doc { display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: center; }
+  .doc .foto { aspect-ratio: 4/5; border-radius: 22px; background: linear-gradient(160deg, #cfe6f1, #9fd3e6); display: grid; place-items: center; }
+  .doc .foto svg { width: 46%; opacity: .55; }
+  .doc h2 { color: var(--azul-osc); margin: 0 0 6px; }
+  .doc .ced { color: var(--gris); margin: 0 0 16px; font-size: .95rem; }
+  .doc ul { padding-left: 20px; margin: 16px 0 0; }
+  .doc li { margin: 6px 0; }
+  @media (max-width: 760px) { .doc { grid-template-columns: 1fr; } .doc .foto { max-width: 260px; } }
+
+  .opi { background: #fff; border-radius: var(--radio); padding: 24px; border: 1px solid #e3edf3; }
+  .opi .stars { color: #f5b301; letter-spacing: 2px; margin-bottom: 8px; }
+  .opi p { margin: 0 0 12px; font-style: italic; }
+  .opi b { font-size: .95rem; }
+
+  .contacto { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .info { background: #fff; border: 1px solid #e3edf3; border-radius: var(--radio); padding: 28px; }
+  .info h3 { margin-top: 0; color: var(--azul-osc); }
+  .info table { width: 100%; border-collapse: collapse; margin: 6px 0 18px; }
+  .info td { padding: 7px 0; border-bottom: 1px solid #eef3f6; }
+  .info td:last-child { text-align: right; color: var(--gris); }
+  .mapa { border-radius: var(--radio); overflow: hidden; min-height: 320px; border: 1px solid #e3edf3; }
+  .mapa iframe { width: 100%; height: 100%; min-height: 320px; border: 0; }
+  @media (max-width: 860px) { .contacto { grid-template-columns: 1fr; } }
+
+  .cta-final { background: var(--azul-osc); color: #fff; text-align: center; }
+  .cta-final h2 { margin: 0 0 10px; font-size: clamp(1.5rem, 3vw, 2rem); }
+  .cta-final p { opacity: .85; margin: 0 0 24px; }
+
+  footer { background: #071f2e; color: #a9bccb; font-size: .9rem; padding: 26px 0; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+  .demo-tag { color: #7fe3d8; }
+
+  /* Botón flotante de WhatsApp */
+  .wa-float { position: fixed; right: 18px; bottom: 18px; width: 58px; height: 58px; border-radius: 50%; background: #25d366; display: grid; place-items: center; box-shadow: 0 8px 22px rgba(0,0,0,.25); z-index: 20; }
+  .wa-float svg { width: 30px; height: 30px; fill: #fff; }
+</style>
+</head>
+<body>
+
+<!-- Ícono de WhatsApp reutilizable -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="wa" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.24.68-1.42 1.3-1.95 1.35-.5.05-1.13.07-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.8-4.18-4.94-4.37-.14-.19-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.26-.29.58-.36.77-.36h.55c.18 0 .42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48l-.43.5c-.14.14-.29.3-.12.59.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.46.12.63-.07.17-.19.72-.84.92-1.13.19-.29.38-.24.65-.14.26.1 1.68.79 1.97.94.29.14.48.21.55.33.07.12.07.7-.17 1.38z"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#inicio">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#0f5e8c"/><path d="M10 10c2-2 4-1 6 0 2-1 4-2 6 0 2 2 1 6 0 8-1 3-1 6-2.5 6S18 20 16 20s-2 4-3.5 4S11 21 10 18c-1-2-2-6 0-8z" fill="#fff"/></svg>
+      Sonrisa Norte
+    </a>
+    <ul>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#doctora">Doctora</a></li>
+      <li><a href="#opiniones">Opiniones</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a class="btn btn-wa" href="https://wa.me/528711310228?text=Hola%20Carlos%2C%20vi%20tu%20p%C3%A1gina%20demo%20y%20me%20interesa%20una%20para%20mi%20negocio" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Agendar</a>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <h1>Tu dentista de confianza en Vista Hermosa</h1>
+      <p>Limpiezas, ortodoncia, blanqueamiento y urgencias, con citas el mismo día. Atención cálida para toda la familia, a dos cuadras de Gonzalitos.</p>
+      <div class="ctas">
+        <a class="btn btn-wa" href="https://wa.me/528711310228?text=Hola%20Carlos%2C%20vi%20tu%20p%C3%A1gina%20demo%20y%20me%20interesa%20una%20para%20mi%20negocio" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Agenda por WhatsApp</a>
+        <a class="btn btn-sec" href="#servicios">Ver servicios y precios</a>
+      </div>
+      <div class="badges">
+        <span>Más de 12 años de experiencia</span>
+        <span>Urgencias el mismo día</span>
+        <span>Facturamos</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Horario de atención</h3>
+      <div class="row"><span>Lunes a viernes</span><b>9:00 – 19:00</b></div>
+      <div class="row"><span>Sábado</span><b>9:00 – 14:00</b></div>
+      <div class="row"><span>Domingo</span><b>Solo urgencias</b></div>
+      <div class="row"><span>Primera consulta</span><b>Sin costo</b></div>
+    </div>
+  </div>
+</section>
+
+<section id="servicios">
+  <div class="wrap">
+    <div class="titulo">
+      <h2>Servicios</h2>
+      <p>Precios claros desde el inicio. El presupuesto final se confirma en tu valoración sin costo.</p>
+    </div>
+    <div class="grid3">
+      <div class="serv">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3c3 0 5 2 5 5 0 4-2 6-2 9 0 2-1 4-3 4s-3-2-3-4c0-3-2-5-2-9 0-3 2-5 5-5z"/></svg></div>
+        <h3>Limpieza dental</h3>
+        <p>Retiro de sarro y manchas, pulido y revisión completa.</p>
+        <div class="precio">Desde $600</div>
+      </div>
+      <div class="serv">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 12h18M6 8v8M10 8v8M14 8v8M18 8v8"/></svg></div>
+        <h3>Ortodoncia</h3>
+        <p>Brackets metálicos, estéticos y alineadores transparentes.</p>
+        <div class="precio">Desde $1,200 al mes</div>
+      </div>
+      <div class="serv">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
+        <h3>Blanqueamiento</h3>
+        <p>Sonrisa hasta 6 tonos más blanca en una sola sesión.</p>
+        <div class="precio">Desde $3,500</div>
+      </div>
+      <div class="serv">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg></div>
+        <h3>Resinas</h3>
+        <p>Curación de caries con material del color de tu diente.</p>
+        <div class="precio">Desde $700</div>
+      </div>
+      <div class="serv">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Urgencias</h3>
+        <p>Dolor, fracturas o infecciones. Te atendemos el mismo día.</p>
+        <div class="precio">Desde $500</div>
+      </div>
+      <div class="serv">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h3>Odontopediatría</h3>
+        <p>Primera visita amigable para niños, sin miedo y sin prisas.</p>
+        <div class="precio">Desde $500</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="doctora">
+  <div class="wrap doc">
+    <div class="foto"><svg viewBox="0 0 24 24" fill="#0f5e8c"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8z"/></svg></div>
+    <div>
+      <h2>Dra. Mariana Treviño</h2>
+      <p class="ced">Cirujana Dentista · Especialista en Ortodoncia · Céd. Prof. 0000000</p>
+      <p>Llevo más de 12 años ayudando a familias de Monterrey a cuidar su sonrisa. Mi prioridad es que te sientas tranquilo: te explico cada paso y el costo antes de empezar.</p>
+      <ul>
+        <li>Egresada de la Facultad de Odontología</li>
+        <li>Especialidad en Ortodoncia</li>
+        <li>Equipo de rayos X digital en consultorio</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="opiniones">
+  <div class="wrap">
+    <div class="titulo">
+      <h2>Lo que dicen nuestros pacientes</h2>
+      <p>4.9 de 5 en Google</p>
+    </div>
+    <div class="grid3">
+      <div class="opi"><div class="stars">★★★★★</div><p>"Llegué con un dolor terrible un sábado y me atendieron en una hora. Súper amables."</p><b>— Laura G.</b></div>
+      <div class="opi"><div class="stars">★★★★★</div><p>"Mi hijo le tenía miedo al dentista y ahora pide ir. La doctora tiene mucha paciencia."</p><b>— Roberto M.</b></div>
+      <div class="opi"><div class="stars">★★★★★</div><p>"Precios claros desde el principio, sin sorpresas. Mis brackets quedaron perfectos."</p><b>— Andrea S.</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="contacto">
+  <div class="wrap">
+    <div class="titulo">
+      <h2>Visítanos</h2>
+      <p>Col. Vista Hermosa, Monterrey, N.L.</p>
+    </div>
+    <div class="contacto">
+      <div class="info">
+        <h3>Contacto</h3>
+        <table>
+          <tr><td>Dirección</td><td>Col. Vista Hermosa, Monterrey</td></tr>
+          <tr><td>WhatsApp</td><td>81 0000 0000</td></tr>
+          <tr><td>Estacionamiento</td><td>Sí, gratuito</td></tr>
+          <tr><td>Pagos</td><td>Efectivo, tarjeta, transferencia</td></tr>
+        </table>
+        <a class="btn btn-wa" href="https://wa.me/528711310228?text=Hola%20Carlos%2C%20vi%20tu%20p%C3%A1gina%20demo%20y%20me%20interesa%20una%20para%20mi%20negocio" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Escríbenos</a>
+      </div>
+      <div class="mapa">
+        <iframe title="Mapa" loading="lazy" src="https://www.google.com/maps?q=Vista+Hermosa,+Monterrey,+N.L.&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap">
+    <h2>Tu primera valoración es sin costo</h2>
+    <p>Escríbenos y te damos cita esta misma semana.</p>
+    <a class="btn btn-wa" href="https://wa.me/528711310228?text=Hola%20Carlos%2C%20vi%20tu%20p%C3%A1gina%20demo%20y%20me%20interesa%20una%20para%20mi%20negocio" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Agendar por WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Clínica Dental Sonrisa Norte</span>
+    <span class="demo-tag">Sitio de demostración · Diseño web: Carlos Fernández · WhatsApp 871-131-0228</span>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/528711310228?text=Hola%20Carlos%2C%20vi%20tu%20p%C3%A1gina%20demo%20y%20me%20interesa%20una%20para%20mi%20negocio" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#wa"/></svg></a>
+
+</body>
+</html>
